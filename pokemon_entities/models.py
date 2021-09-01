@@ -1,11 +1,19 @@
 from django.db import models  # noqa F401
 
+DEFAULT_IMAGE_URL = (
+    "https://vignette.wikia.nocookie.net/pokemon/images/6/6e/%21.png/revision"
+    "/latest/fixed-aspect-ratio-down/width/240/height/240?cb=20130525215832"
+    "&fill=transparent"
+)
 
 class Pokemon(models.Model):
     title = models.TextField(verbose_name="имя")
     photo = models.ImageField(
-        verbose_name="картинка", upload_to="pokemons", null=True, blank=True
+        verbose_name="картинка", upload_to="pokemons", blank=True, default=DEFAULT_IMAGE_URL,
     )
+    en_title = models.CharField(verbose_name='имя на английском', max_length=200, blank=True)
+    jp_title = models.CharField(verbose_name='имя на японском', max_length=200, blank=True)
+    description = models.TextField(verbose_name='описание', blank=True)
 
     def __str__(self):
         return self.title
