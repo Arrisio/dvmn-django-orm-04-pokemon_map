@@ -11,8 +11,8 @@ class Pokemon(models.Model):
     photo = models.ImageField(
         verbose_name="картинка", upload_to="pokemons", blank=True, default=DEFAULT_IMAGE_URL,
     )
-    en_title = models.CharField(verbose_name='имя на английском', max_length=200, blank=True)
-    jp_title = models.CharField(verbose_name='имя на японском', max_length=200, blank=True)
+    title_en = models.CharField(verbose_name='имя на английском', max_length=200, blank=True)
+    title_jp = models.CharField(verbose_name='имя на японском', max_length=200, blank=True)
     description = models.TextField(verbose_name='описание', blank=True)
 
     def __str__(self):
