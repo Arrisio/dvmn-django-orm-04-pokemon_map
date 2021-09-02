@@ -7,7 +7,7 @@ DEFAULT_IMAGE_URL = (
 )
 
 class Pokemon(models.Model):
-    title = models.TextField(verbose_name="имя")
+    title = models.CharField(verbose_name="имя", max_length=200,)
     photo = models.ImageField(
         verbose_name="картинка", upload_to="pokemons", blank=True, default=DEFAULT_IMAGE_URL,
     )
