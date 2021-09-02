@@ -1,4 +1,4 @@
-from django.db import models  # noqa F401
+from django.db import models
 
 DEFAULT_IMAGE_URL = (
     "https://vignette.wikia.nocookie.net/pokemon/images/6/6e/%21.png/revision"
