@@ -55,7 +55,7 @@ def show_all_pokemons(request):
 
 def show_pokemon(request, pokemon_id):
     try:
-        pokemon = Pokemon.objects.get(id=pokemon_id)
+        pokemon = Pokemon.objects.prefetch_related('entities').get(id=pokemon_id)
     except Pokemon.DoesNotExist:
         return HttpResponseNotFound("<h1>Такой покемон не найден</h1>")
 
